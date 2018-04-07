@@ -21,9 +21,9 @@ public class MorraApp{
         int computerEvens;
         int playerSel;
         int playerFingers=0;
-        int computerFingers=0;
-        int playerScore=0;
-        int computerScore=0;
+        int computerFingers;
+        int playerScore;
+        int computerScore;
         int another;
         boolean valid;
 
