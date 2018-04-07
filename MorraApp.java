@@ -6,10 +6,12 @@ public class MorraApp{
     public static void main(String args[]){
 
         JFrame selection=new JFrame();
+        
         String[]yesNo=new String[2];
         String[]oddsEvens=new String[2];
         int[][]roundFingers=new int[2][4];
         ArrayList<String>history=new ArrayList<>();
+        
         int roundCounter;
         int gameCounter=0;
         int roundsWon;
@@ -49,7 +51,10 @@ public class MorraApp{
             computerEvens=0;
 
             gameCounter++;
-            playerSel=JOptionPane.showOptionDialog(selection.getContentPane(),"What will you choose?","Decisions decisions...",0,JOptionPane.INFORMATION_MESSAGE,null,oddsEvens,null);
+            
+            playerSel=JOptionPane.showOptionDialog(selection.getContentPane(),"What will you choose?",
+            "Decisions decisions...",0,JOptionPane.INFORMATION_MESSAGE,null,oddsEvens,null);
+            
             Morra myMorra=new Morra(playerSel);
 
             while(playerScore<6&&computerScore<6){
@@ -138,32 +143,33 @@ public class MorraApp{
             if(playerScore>computerScore){
 
                 JOptionPane.showMessageDialog(null,
-                        "Congratulations, you have won the game!\n\nRounds:      1  2  3  4\nPlayer:         "+roundFingers[0][0]+
+                "Congratulations, you have won the game!\n\nRounds:      1  2  3  4\nPlayer:         "+roundFingers[0][0]+
                 "  "+roundFingers[0][1]+"  "+roundFingers[0][2]+"  "+roundFingers[0][3]+"\nComputer:  "+roundFingers[1][0]+
                 "  "+roundFingers[1][1]+"  "+roundFingers[1][2]+"  "+roundFingers[1][3]);
             }
             else if(playerScore<computerScore){
 
                 JOptionPane.showMessageDialog(null,
-                        "Unfortunately you have lost...\n\nRounds:      1  2  3  4\nPlayer:         "+roundFingers[0][0]+
-                                "  "+roundFingers[0][1]+"  "+roundFingers[0][2]+"  "+roundFingers[0][3]+"\nComputer:  "+roundFingers[1][0]+
-                                "  "+roundFingers[1][1]+"  "+roundFingers[1][2]+"  "+roundFingers[1][3]);
+                "Unfortunately you have lost...\n\nRounds:      1  2  3  4\nPlayer:         "+roundFingers[0][0]+
+                "  "+roundFingers[0][1]+"  "+roundFingers[0][2]+"  "+roundFingers[0][3]+"\nComputer:  "+roundFingers[1][0]+
+                "  "+roundFingers[1][1]+"  "+roundFingers[1][2]+"  "+roundFingers[1][3]);
             }
             else{
 
                 JOptionPane.showMessageDialog(null,
-                        "The game ended in a tie!\n\nRounds:      1  2  3  4\nPlayer:         "+roundFingers[0][0]+
-                                "  "+roundFingers[0][1]+"  "+roundFingers[0][2]+"  "+roundFingers[0][3]+"\nComputer:  "+roundFingers[1][0]+
-                                "  "+roundFingers[1][1]+"  "+roundFingers[1][2]+"  "+roundFingers[1][3]);
+                "The game ended in a tie!\n\nRounds:      1  2  3  4\nPlayer:         "+roundFingers[0][0]+
+                "  "+roundFingers[0][1]+"  "+roundFingers[0][2]+"  "+roundFingers[0][3]+"\nComputer:  "+roundFingers[1][0]+
+                "  "+roundFingers[1][1]+"  "+roundFingers[1][2]+"  "+roundFingers[1][3]);
             }
 
-            history.add("\nGame "+gameCounter+":"+"\n\nRounds won by the player: "+roundsWon+"\nRounds lost by the player:  "+roundsLost+
-            "\n\nExtra points received:         "+extraPoints+"\n\nEven numbers chosen by the player: "+playerEvens+
+            history.add("\nGame "+gameCounter+":"+"\n\nRounds won by the player: "+roundsWon+"\nRounds lost by the player:  "
+            +roundsLost+"\n\nExtra points received:         "+extraPoints+"\n\nEven numbers chosen by the player: "+playerEvens+
             "\nOdd numbers chosen by the player:  "+playerOdds+"\n\nEven numbers chosen by the computer: "+computerEvens+
             "\nOdd numbers chosen by the computer:  "+computerOdds+"\n");
 
 
-            another=JOptionPane.showOptionDialog(selection.getContentPane(),"Would you like to play another game?","The End?",0,JOptionPane.INFORMATION_MESSAGE,null,yesNo,null);
+            another=JOptionPane.showOptionDialog(selection.getContentPane(),
+            "Would you like to play another game?","The End?",0,JOptionPane.INFORMATION_MESSAGE,null,yesNo,null);
         }
 
         JOptionPane.showMessageDialog(null,"Total Games Played:  "+gameCounter+"\n\n"+history);
